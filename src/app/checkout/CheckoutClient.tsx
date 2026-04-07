@@ -76,8 +76,13 @@ export function CheckoutClient() {
             <div className="space-y-4 max-h-96 overflow-y-auto mb-6 pr-2">
               {cart.map((item) => (
                 <div key={item.id} className="flex items-center gap-4 border-b border-gray-200 pb-4">
-                  <div className="w-16 h-16 bg-gray-200 rounded-md overflow-hidden shrink-0">
-                    <img src={item.image} alt={item.name} className="w-full h-full object-cover" />
+                  <div className="w-16 h-16 bg-gray-200 rounded-md overflow-hidden shrink-0 flex items-center justify-center text-gray-400">
+                    <img 
+                      src={item.image_url || item.image || 'https://images.unsplash.com/photo-1542838132-92c53300491e?auto=format&fit=crop&q=80&w=200'} 
+                      alt={item.name} 
+                      className="w-full h-full object-cover" 
+                      onError={(e) => { e.currentTarget.src = 'https://images.unsplash.com/photo-1542838132-92c53300491e?auto=format&fit=crop&q=80&w=200'; }}
+                    />
                   </div>
                   <div className="flex-1">
                     <h4 className="font-medium text-gray-900 line-clamp-1">{item.name}</h4>
