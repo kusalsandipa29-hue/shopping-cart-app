@@ -1,4 +1,5 @@
 'use client';
+import { resolveImage } from '@/lib/resolveImage';
 import { CartItem } from '@/store/useStore';
 import { useStore } from '@/store/useStore';
 import { QuantitySelector } from '@/components/ui/QuantitySelector';
@@ -44,10 +45,10 @@ export function CartItemCard({ item }: { item: CartItem }) {
       <Link href={`/product/${item.id}`} className="shrink-0">
         <div className="w-24 h-24 rounded-md overflow-hidden bg-gray-100 flex items-center justify-center text-gray-300">
           <img 
-            src={item.image_url || 'https://images.unsplash.com/photo-1542838132-92c53300491e?auto=format&fit=crop&q=80&w=200'} 
+            src={resolveImage(item.image_url)} 
             alt={item.name} 
             className="w-full h-full object-cover" 
-            onError={(e) => { e.currentTarget.src = 'https://images.unsplash.com/photo-1542838132-92c53300491e?auto=format&fit=crop&q=80&w=200'; }}
+            onError={(e) => { e.currentTarget.src = resolveImage(null); }}
           />
         </div>
       </Link>

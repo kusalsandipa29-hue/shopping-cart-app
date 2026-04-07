@@ -1,0 +1,35 @@
+{
+  "broken": [],
+  "all": [
+    {
+      "id": 6,
+      "name": "brocali",
+      "image_url": "https://cdn.britannica.com/39/187439-050-35BA4DCA/Broccoli-florets.jpg"
+    },
+    {
+      "id": 7,
+      "name": "Chocolate Layer Cake",
+      "image_url": "https://sallysbakingaddiction.com/wp-content/uploads/2013/04/triple-chocolate-cake-4.jpg"
+    },
+    {
+      "id": 8,
+      "name": "Jeera Biscuits",
+      "image_url": "https://static.toiimg.com/thumb/62403305.cms?imgsize=566439&width=800&height=800"
+    },
+    {
+      "id": 1,
+      "name": "Carrot",
+      "image_url": "https://images.unsplash.com/photo-1598170845058-32b9d6a5da37?auto=format&fit=crop&q=80&w=800"
+    },
+    {
+      "id": 2,
+      "name": "Tomato",
+      "image_url": "https://images.unsplash.com/photo-1592924357228-91a4daadcfea?auto=format&fit=crop&q=80&w=800"
+    },
+    {
+      "id": 3,
+      "name": "Banana",
+      "image_url": "https://images.unsplash.com/photo-1571771894821-ce9b6c11b08e?auto=format&fit=crop&q=80&w=800"
+    }
+  ]
+}

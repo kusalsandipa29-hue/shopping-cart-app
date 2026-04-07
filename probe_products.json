@@ -1,0 +1,27 @@
+[
+  {
+    "id": 1,
+    "name": "Carrot",
+    "image_url": "/images/carrot.jpg"
+  },
+  {
+    "id": 2,
+    "name": "Tomato",
+    "image_url": "/images/tomato.jpg"
+  },
+  {
+    "id": 3,
+    "name": "Banana",
+    "image_url": "/images/banana.jpg"
+  },
+  {
+    "id": 6,
+    "name": "brocali",
+    "image_url": "https://cdn.britannica.com/39/187439-050-35BA4DCA/Broccoli-florets.jpg"
+  },
+  {
+    "id": 7,
+    "name": "Chocolate Layer Cake",
+    "image_url": "https://sallysbakingaddiction.com/wp-content/uploads/2013/04/triple-chocolate-cake-4.jpg"
+  }
+]
