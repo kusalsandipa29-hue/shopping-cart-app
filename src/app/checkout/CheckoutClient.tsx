@@ -78,7 +78,7 @@ export function CheckoutClient() {
                 <div key={item.id} className="flex items-center gap-4 border-b border-gray-200 pb-4">
                   <div className="w-16 h-16 bg-gray-200 rounded-md overflow-hidden shrink-0 flex items-center justify-center text-gray-400">
                     <img 
-                      src={item.image_url || item.image || 'https://images.unsplash.com/photo-1542838132-92c53300491e?auto=format&fit=crop&q=80&w=200'} 
+                      src={item.image_url || 'https://images.unsplash.com/photo-1542838132-92c53300491e?auto=format&fit=crop&q=80&w=200'} 
                       alt={item.name} 
                       className="w-full h-full object-cover" 
                       onError={(e) => { e.currentTarget.src = 'https://images.unsplash.com/photo-1542838132-92c53300491e?auto=format&fit=crop&q=80&w=200'; }}

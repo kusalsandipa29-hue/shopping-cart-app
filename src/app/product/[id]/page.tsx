@@ -48,7 +48,7 @@ export default async function ProductPage({ params }: { params: Promise<{ id: st
         <div className="grid grid-cols-1 md:grid-cols-2 gap-0 md:gap-8 lg:gap-12 p-6 md:p-10">
           <div className="aspect-square w-full rounded-xl overflow-hidden bg-gray-50 mb-6 md:mb-0 flex items-center justify-center text-gray-300">
             <img 
-              src={product.image_url || product.image || 'https://images.unsplash.com/photo-1542838132-92c53300491e'} 
+              src={product.image_url || 'https://images.unsplash.com/photo-1542838132-92c53300491e?auto=format&fit=crop&q=80&w=800'} 
               alt={product.name} 
               className="w-full h-full object-cover"
             />

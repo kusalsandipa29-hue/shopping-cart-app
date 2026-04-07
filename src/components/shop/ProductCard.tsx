@@ -19,7 +19,7 @@ export function ProductCard({ product }: { product: Product }) {
        <Link href={`/product/${product.id}`} className="flex-1">
           <div className="aspect-[4/3] w-full overflow-hidden bg-gray-50 flex items-center justify-center text-gray-300">
            <img 
-             src={product.image_url || product.image || 'https://images.unsplash.com/photo-1542838132-92c53300491e'} 
+             src={product.image_url || 'https://images.unsplash.com/photo-1542838132-92c53300491e?auto=format&fit=crop&q=80&w=800'} 
              alt={product.name} 
              className="object-cover w-full h-full group-hover:scale-105 transition-transform duration-500" 
              onError={(e) => { e.currentTarget.src = 'https://images.unsplash.com/photo-1542838132-92c53300491e?auto=format&fit=crop&q=80&w=800'; }}
