@@ -1,11 +1,34 @@
 'use client';
 import { useStore } from '@/store/useStore';
-import { resolveImage } from '@/lib/resolveImage';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { useState, useEffect } from 'react';
 import { toast } from 'sonner';
 import { useRouter } from 'next/navigation';
+
+// Guaranteed fallback - absolute URL, always renders
+const IMG_FALLBACK = 'https://images.unsplash.com/photo-1504674900247-0877df9cc836?auto=format&fit=crop&q=80&w=200';
+
+/**
+ * Resolves image URL from any cart item regardless of shape.
+ * The raw Supabase product object may have image_url.
+ * Old mock data may have image (deprecated).
+ * Relative paths (/images/...) are broken on Vercel - reject them.
+ * Always return a non-empty absolute URL string.
+ */
+function getImageSrc(item: any): string {
+  const candidates = [
+    item?.image_url,
+    item?.image,
+    item?.product?.image_url,
+  ];
+  for (const candidate of candidates) {
+    if (candidate && typeof candidate === 'string' && candidate.startsWith('http')) {
+      return candidate;
+    }
+  }
+  return IMG_FALLBACK;
+}
 
 export function CheckoutClient() {
   const cart = useStore((state) => state.cart);
@@ -30,11 +53,6 @@ export function CheckoutClient() {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    console.log('Order Confirmed:', {
-      cart,
-      total,
-      // mock data capture
-    });
     clearCart();
     toast.success("Order Placed Successfully! This is a mock checkout.");
     router.push('/home');
@@ -76,23 +94,16 @@ export function CheckoutClient() {
             <h2 className="text-2xl font-semibold mb-6">Order Details</h2>
             <div className="space-y-4 max-h-96 overflow-y-auto mb-6 pr-2">
               {cart.map((item) => {
-                // DEBUG: log every item so we can see its exact shape
-                console.log('CHECKOUT ITEM', JSON.stringify(item));
-                // Resolve image with multiple fallback layers
-                const FALLBACK_SRC = 'https://images.unsplash.com/photo-1504674900247-0877df9cc836?auto=format&fit=crop&q=80&w=200';
-                const rawImg = (item as any).image_url || (item as any).image || (item as any).product?.image_url || '';
-                const imgSrc = (rawImg && typeof rawImg === 'string' && rawImg.startsWith('http'))
-                  ? rawImg
-                  : FALLBACK_SRC;
-
+                const imgSrc = getImageSrc(item);
                 return (
-                  <div key={item.id} className="flex items-center gap-4 border-b border-gray-200 pb-4">
-                    <div className="w-16 h-16 bg-gray-200 rounded-md overflow-hidden shrink-0 flex items-center justify-center text-gray-400">
-                      <img 
+                  <div key={String(item.id)} className="flex items-center gap-4 border-b border-gray-200 pb-4">
+                    <div className="w-16 h-16 bg-gray-200 rounded-md overflow-hidden shrink-0 flex items-center justify-center">
+                      {/* src is ALWAYS a non-empty string from getImageSrc */}
+                      <img
                         src={imgSrc}
-                        alt={item.name} 
-                        className="w-full h-full object-cover" 
-                        onError={(e) => { e.currentTarget.src = FALLBACK_SRC; }}
+                        alt={item.name}
+                        className="w-full h-full object-cover"
+                        onError={(e) => { (e.currentTarget as HTMLImageElement).src = IMG_FALLBACK; }}
                       />
                     </div>
                     <div className="flex-1">

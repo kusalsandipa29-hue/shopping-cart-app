@@ -1,0 +1,12 @@
+[
+  {
+    "id": 6,
+    "category_id": 1,
+    "name": "brocali",
+    "description": "Vegetable | Description, Types, Farming, & Examples | Britannica",
+    "price": 100,
+    "image_url": "https://cdn.britannica.com/39/187439-050-35BA4DCA/Broccoli-florets.jpg",
+    "stock": 50,
+    "created_at": "2026-04-06T11:47:48.947475+00:00"
+  }
+]
