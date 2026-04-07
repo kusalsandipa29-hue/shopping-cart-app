@@ -1,0 +1,22 @@
+[
+  {
+    "id": 1,
+    "category_id": 1,
+    "name": "Carrot",
+    "description": "Fresh carrots",
+    "price": 250,
+    "image_url": "/images/carrot.jpg",
+    "stock": 50,
+    "created_at": "2026-04-06T09:38:25.245785+00:00"
+  },
+  {
+    "id": 2,
+    "category_id": 1,
+    "name": "Tomato",
+    "description": "Red tomatoes",
+    "price": 180,
+    "image_url": "/images/tomato.jpg",
+    "stock": 40,
+    "created_at": "2026-04-06T09:38:25.245785+00:00"
+  }
+]

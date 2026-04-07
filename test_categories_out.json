@@ -1,0 +1,12 @@
+[
+  {
+    "id": 1,
+    "name": "Vegetables",
+    "slug": "vegetables"
+  },
+  {
+    "id": 2,
+    "name": "Fruits",
+    "slug": "fruits"
+  }
+]
